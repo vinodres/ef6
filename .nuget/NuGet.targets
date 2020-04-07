@@ -39,7 +39,8 @@
     
     <PropertyGroup>
         <!-- NuGet command -->
-        <NuGetExePath Condition=" '$(NuGetExePath)' == '' ">$(NuGetToolsPath)\NuGet.exe</NuGetExePath>
+        <!-- NuGetExePath Condition=" '$(NuGetExePath)' == '' ">$(NuGetToolsPath)\NuGet.exe</NuGetExePath -->
+        <NuGetExePath Condition=" '$(NuGetExePath)' == '' ">NuGet.exe</NuGetExePath> <!-- Use version downloaded by previous tasks and on PATH -->
         <PackageSources Condition=" $(PackageSources) == '' ">@(PackageSource)</PackageSources>
         
         <NuGetCommand Condition=" '$(OS)' == 'Windows_NT'">"$(NuGetExePath)"</NuGetCommand>
