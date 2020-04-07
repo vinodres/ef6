@@ -59,8 +59,11 @@
         <!-- PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(OS)' == 'Windows_NT' AND '$(DoNotPad)' == ''">"$(SolutionDir) "</PaddedSolutionDir>
         <PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(OS)' != 'Windows_NT' ">"$(SolutionDir)"</PaddedSolutionDir -->
 
-        <PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(PackageRestoreOutputDir)' != '' AND '$(DoNotPad)' != ''">"$(PackageRestoreOutputDir)"</PaddedSolutionDir>
-        <PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(DoNotPad)' != ''">"$(SolutionDir)"</PaddedSolutionDir>
+        <!-- PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(PackageRestoreOutputDir)' != '' AND '$(DoNotPad)' != ''">"$(PackageRestoreOutputDir)"</PaddedSolutionDir>
+        <PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(DoNotPad)' != ''">"$(SolutionDir)"</PaddedSolutionDir -->
+
+        <PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == '' AND '$(PackageRestoreOutputDir)' != ''">"$(PackageRestoreOutputDir)"</PaddedSolutionDir>
+        <PaddedSolutionDir Condition=" '$(PaddedSolutionDir)' == ''">"$(SolutionDir)"</PaddedSolutionDir>
 
         <!-- Commands -->
         <InstallCommandOptions>$(NonInteractiveSwitch) $(RequireConsentSwitch) $(NoCacheSwitch) $(PreReleaseSwitch) -solutionDir $(PaddedSolutionDir)</InstallCommandOptions>
