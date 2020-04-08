@@ -24,6 +24,12 @@ steps:
   displayName: Create JobStartDateTime Variable
   enabled: false
 
+- task: NuGetAuthenticate@0
+  displayName: 'NuGet Authenticate'
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
 - task: BatchScript@1
   displayName: Run EFBuild
   inputs:
@@ -91,7 +97,7 @@ steps:
     msbuildArchitecture: x64
     configuration: '$(BuildConfiguration)'
     msbuildArguments: '/t:Build /v:d /bl:$(Build.SourcesDirectory)\bin\$(BuildConfiguration)\BuildSingletonMSI2017.binlog'
-  timeoutInMinutes: 10
+  timeoutInMinutes: 30
 
 - task: CopyFiles@2
   displayName: Copy VSIX, MSI and CAB
