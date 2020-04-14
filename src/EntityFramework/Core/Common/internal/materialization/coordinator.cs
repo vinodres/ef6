@@ -114,7 +114,8 @@ namespace System.Data.Entity.Core.Common.Internal.Materialization
         {
             // check if this row contains a new element for this coordinator
             var result = false;
-
+            //TODO: Vinod - need to add error handling here to identify specific root cause of the issue (Specified cast is invalid) - Migrating from Oracle to SQL Server is a daunting effort and having additional details
+            //will help. Worst case, local debugging and adding breakpoint here will help.
             if (!IsEntered
                 || !CoordinatorFactory.CheckKeys(shaper))
             {
